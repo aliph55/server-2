@@ -1,17 +1,17 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const stripe = require("stripe")(
-  "sk_test_51NOMvzJzZzpXlpJ7WmWOWotv5bq9wXQKJcTFZ060Gf4Z5oKxGtHPJRG9R4WDaXnq2sVkgg5GkleQJFCPVJzBuJoR00v32Rzpc2"
-); // Stripe secret anahtarınızı buraya koyun
+import express from "express";
+import Stripe from "stripe";
+import { STRIPE_SECRET_KEY } from "./constants";
+
+const stripeSecretKey = STRIPE_SECRET_KEY;
+
 const app = express();
 
-app.use(bodyParser.json());
-
+app.use(express.json());
 // Google Pay ödeme işleme rotası
 app.post("/create-payment-intent", async (req, res) => {
   try {
     // Ödeme miktarını ve para birimini istemciden alın
-    const { amount, currency } = req.body;
+    const { amount, currency, email } = req.body;
 
     // PaymentIntent oluşturun
     const paymentIntent = await stripe.paymentIntents.create({
