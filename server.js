@@ -1,29 +1,28 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const stripe = require("stripe")(
-  "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"
-); // Stripe secret anahtarınızı buraya koyun
+const cors = require("cors");
+const Stripe = require("stripe");
+
+const stripe = new Stripe("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", {
+  apiVersion: "2023-10-16", 
+});
+
 const app = express();
+app.use(cors());
+app.use(express.json());
 
-app.use(bodyParser.json());
-
-// Google Pay ödeme işleme rotası
 app.post("/create-payment-intent", async (req, res) => {
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: 1000, // Ödeme miktarı (cent cinsinden)
+      amount: 1000, // 10 USD (cent cinsinden)
       currency: "usd",
-      payment_method_types: ["card"], // veya ["card", "google_pay"]
+      payment_method_types: ["card"],
     });
 
-    res.send({ clientSecret: paymentIntent.client_secret });
+    res.json({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
-    console.error(error);
-    res.status(500).send("PaymentIntent creation failed");
+    console.error("Stripe Error:", error);
+    res.status(500).json({ error: error.message });
   }
 });
 
-// Sunucuyu başlat
-app.listen(4242, () =>
-  console.log("Server is running on http://localhost:4242")
-);
+app.listen(4242, () => console.log("Server running on port 4242"));
