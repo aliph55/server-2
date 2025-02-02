@@ -2,9 +2,12 @@ import express from "express";
 import cors from "cors";
 import Stripe from "stripe";
 
-const stripe = new Stripe("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", {
-  apiVersion: "2023-10-16", 
-});
+const stripe = new Stripe(
+  "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",
+  {
+    apiVersion: "2023-10-16",
+  }
+);
 
 const app = express();
 app.use(cors());
@@ -16,6 +19,7 @@ app.post("/create-payment-intent", async (req, res) => {
       amount: 1000, // 10 USD (cent cinsinden)
       currency: "usd",
       payment_method_types: ["card"],
+      metadata,
     });
 
     res.json({ clientSecret: paymentIntent.client_secret });
