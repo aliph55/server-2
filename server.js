@@ -1,13 +1,11 @@
 import express from "express";
 import cors from "cors";
 import Stripe from "stripe";
+import { STRIPE_SECRET_KEY } from "./constants";
 
-const stripe = new Stripe(
-  "pk_live_51NOMvzJzZzpXlpJ7GwHfXu7leBnDN8B4fQ1S0loPxQgCxUdrPxpzOzQt8aQbeEsrhol1VAVeEHz3XKOXXY3sGz4b0056T5j4h8",
-  {
-    apiVersion: "2023-10-16",
-  }
-);
+const stripe = new Stripe(STRIPE_SECRET_KEY, {
+  apiVersion: "2023-10-16",
+});
 
 const app = express();
 app.use(cors());
