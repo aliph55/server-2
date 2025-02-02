@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import Stripe from "stripe";
-import { STRIPE_SECRET_KEY } from "./constants";
 
 const stripe = new Stripe(
   "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",
