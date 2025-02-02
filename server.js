@@ -3,7 +3,7 @@ import cors from "cors";
 import Stripe from "stripe";
 
 const stripe = new Stripe(
-  "pk_test_51NOMvzJzZzpXlpJ7zWvEGa1PkvTXklcmftbzcgsVRXLoTobAHrraQFzfsgR03BHJIqHI4NPHFX6aguRewstvzdn200mMfh226C",
+  "pk_live_51NOMvzJzZzpXlpJ7GwHfXu7leBnDN8B4fQ1S0loPxQgCxUdrPxpzOzQt8aQbeEsrhol1VAVeEHz3XKOXXY3sGz4b0056T5j4h8",
   {
     apiVersion: "2023-10-16",
   }
