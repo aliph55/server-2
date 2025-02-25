@@ -15,24 +15,26 @@ app.get("/", (req, res) => {
 // Payment Intent oluşturma
 app.post("/create-payment-intent", async (req, res) => {
   try {
-    const { email, currency, amount } = req.body;
+    const { amount, currency, email } = req.body;
 
-    // Stripe PaymentIntent oluşturma
+    // Ödeme intent oluştur
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       currency,
-      payment_method_types: ["card"], // Sadece kart ile ödeme kabul edilecek
-      receipt_email: email, // Kullanıcıya ödeme maili göndermek için
+      receipt_email: email,
+      payment_method_types: ["card"],
     });
 
-    res.json({
-      clientSecret: paymentIntent.client_secret,
-    });
+    console.log("✅ Payment Intent Created:", paymentIntent);
+
+    // Client Secret'i gönder
+    res.json({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
-    console.error("Payment Intent Error:", error);
+    console.error("🔥 Hata:", error);
     res.status(500).json({ error: error.message });
   }
 });
+
 
 // Sunucuyu belirlenen portta çalıştır
 const PORT = process.env.PORT || 5000;
