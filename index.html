@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-6721519204185712">
+    <title>ZenAi - Developer Website</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6721519204185712"
+     crossorigin="anonymous"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .status {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .info-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .info-box h3 { color: #667eea; margin-bottom: 10px; }
+        .button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .ad-container {
+            background: #f9f9f9;
+            border: 2px dashed #ddd;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+            color: #999;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 5px;
+        }
+        .check-result {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            display: none;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ZenAi Developer Website</h1>
+        
+        <div style="text-align: center;">
+            <span class="badge">Android App</span>
+            <span class="badge">AdMob Ready</span>
+            <span class="badge">Netlify</span>
+        </div>
+        
+        <div class="status">
+            <strong>✅ app-ads.txt Aktif!</strong><br>
+            AdMob doğrulama dosyası yayında.
+        </div>
+
+        <div class="info-box">
+            <h3>📋 Publisher Bilgileri</h3>
+            <p><strong>Publisher ID:</strong> pub-6721519204185712</p>
+            <p><strong>App Name:</strong> ZenAi (Android)</p>
+            <p><strong>Platform:</strong> Google AdMob</p>
+        </div>
+
+        <div class="ad-container">
+            📢 <strong>Reklam Alanı</strong><br>
+            AdMob Banner
+        </div>
+
+        <div class="info-box">
+            <h3>🔧 Doğrulama Adımları</h3>
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li>Test app-ads.txt butonuna tıklayın</li>
+                <li>Google Play Console → Store listing → Website kısmına bu URL'i ekleyin</li>
+                <li>AdMob Console → Apps → ZenAi → "Check for updates"</li>
+                <li>1-24 saat içinde doğrulama tamamlanır</li>
+            </ol>
+        </div>
+
+        <div id="check-result" class="check-result"></div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <button class="button" onclick="testAppAdsTxt()">🔍 Test app-ads.txt</button>
+            <a href="/app-ads.txt" class="button" target="_blank">📄 app-ads.txt Görüntüle</a>
+            <a href="https://admob.google.com" class="button" target="_blank">🚀 AdMob Console</a>
+        </div>
+
+        <div class="info-box">
+            <h3>📱 ZenAi Hakkında</h3>
+            <p>Yapay zeka destekli üretkenlik uygulaması.</p>
+        </div>
+
+        <div class="ad-container">
+            📢 <strong>Reklam Alanı</strong><br>
+            AdMob Rectangle
+        </div>
+
+        <footer>
+            <p>&copy; 2024 ZenAi. Tüm hakları saklıdır.</p>
+            <p style="font-size: 12px; margin-top: 10px;">Publisher: pub-6721519204185712</p>
+        </footer>
+    </div>
+
+    <script>
+        const siteUrl = window.location.origin;
+
+        async function testAppAdsTxt() {
+            const resultDiv = document.getElementById('check-result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = '<strong>⏳ Kontrol ediliyor...</strong>';
+            
+            try {
+                const response = await fetch('/app-ads.txt');
+                const text = await response.text();
+                
+                if (response.ok && text.includes('pub-6721519204185712')) {
+                    resultDiv.style.background = '#e8f5e9';
+                    resultDiv.style.borderColor = '#4caf50';
+                    resultDiv.innerHTML = `
+                        <strong>✅ app-ads.txt Çalışıyor!</strong><br><br>
+                        <strong>URL:</strong> ${siteUrl}/app-ads.txt<br><br>
+                        <strong>İçerik:</strong><br>
+                        <div class="code-block">${text}</div>
+                        <br>
+                        <strong>Sonraki Adım:</strong> Google Play Console'da Website kısmına şu URL'i ekleyin:<br>
+                        <code>${siteUrl}</code>
+                    `;
+                } else {
+                    throw new Error('Publisher ID bulunamadı');
+                }
+            } catch (error) {
+                resultDiv.style.background = '#ffebee';
+                resultDiv.style.borderColor = '#f44336';
+                resultDiv.innerHTML = `<strong>❌ Hata:</strong> ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
